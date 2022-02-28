@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Headline</h1>
+    <form action="" method="get">
+
+        <div>
+            <input type="text" name="input1">
+            <button type="submit" onclick="addToList(input1.value); return false;">add</button>
+        </div>
+
+        <div>
+            <input type="text" name="input2" placeholder="search" onkeyup="filterBy(input2.value)"
+                style="margin-top: 5px;">
+        </div>
+    </form>
+
+    <ul id="list">
+    </ul>
+
+    <script>
+        function addToList(item) {
+            list.push(item);
+            printList(list);
+        }
+        var list = ["item 1", "item 2", "item 3", "var 4"];
+
+        function filterBy(value) {
+           var newList = list.filter((item) => {
+               var newItem = item.includes(value);
+               return newItem;
+            });
+            printList(newList);
+        }
+        function printList(list) {
+            let uList = document.getElementById("list");
+            uList.innerHTML = ``;
+
+            for (let i = 0; i < list.length; i++) {
+                const element = list[i];
+                uList.innerHTML += `<li>${list[i]}</li>`;
+            }
+        }
+        printList(list);
+    </script>
+</body>
+
+</html>

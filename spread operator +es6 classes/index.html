@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let image = {
+            width: 50,
+            height: 100,
+            artist: {
+                name: 'De Vinci',
+                originCountry: 'Italy'
+            }
+        };
+        class Copy {
+
+            clone(obj) {
+                let copy = {...obj, artist: {...obj.artist}};
+                return copy;
+            }
+        }
+
+        var copyInstance = new Copy();
+        var copy = copyInstance.clone(image);
+        copy.width = 55;
+        copy.artist.originCountry = "France";
+        console.log(image);
+        console.log(copy);
+
+    </script>
+</body>
+
+</html>

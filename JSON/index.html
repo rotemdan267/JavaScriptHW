@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body onload="init()">
+    <button onclick="another()">Add object</button>
+    <script>
+
+        let str = '{ ' +
+            '"userId": 1, ' +
+            '"id": 1, ' +
+            '"title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",' +
+            ' "body": "quia et suscipitsuscipit recusandae consequuntur expedita et cumreprehenderit molestiae ut ut quas totamnostrum rerum est autem sunt rem eveniet architecto"' +
+            ' }';
+        const obj = JSON.parse(str);
+        console.log(obj);
+
+        function addObjToPage(obj) {
+            document.body.innerHTML += `<div><p>${obj.userId}</p>
+                                    <p>${obj.id}</p>
+                                    <h3>${obj.title}</h3>
+                                    <p>${obj.body}</p></div>`;
+
+        }
+        addObjToPage(obj);
+
+        function another() {
+            obj.userId++;
+            obj.id++;
+            obj.title = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate consequatur quidem tempore corporis optio soluta vel adipisci quae blanditiis facilis eaque sit molestias, quis vitae, voluptates fugit inventore culpa dolor?";
+            obj.body = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus laborum blanditiis aspernatur expedita placeat, quis laudantium voluptatibus accusantium. Voluptatibus laboriosam ad velit iste cum error nam tempore expedita nobis libero?";
+            addObjToPage(obj);
+        }
+
+    </script>
+</body>
+
+</html>
